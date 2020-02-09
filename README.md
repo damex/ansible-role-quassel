@@ -1,2 +1,1 @@
-# ansible-role-quassel
-ansible quassel role
+# ansible quassel role
