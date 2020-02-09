@@ -1,0 +1,8 @@
+---
+- name: ensure quassel
+  block:
+    - import_tasks: packages.yml
+    - import_tasks: directories.yml
+    - import_tasks: systemd.yml
+  tags:
+    - quassel
