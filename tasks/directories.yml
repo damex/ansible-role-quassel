@@ -1,10 +1,9 @@
 ---
 - name: ensure custom systemd directory
-  template:
+  file:
     path: "{{ quassel_custom_systemd_directory }}"
     state: directory
     owner: "root"
     group: "root"
     mode: 0755
   become: true
-  register: quassel_custom_systemd_directory
