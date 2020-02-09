@@ -1,7 +1,7 @@
 ---
-- name: ensure custom systemd directory
+- name: ensure systemd directory
   file:
-    path: "{{ quassel_custom_systemd_directory }}"
+    path: "{{ quassel_systemd_directory }}"
     state: directory
     owner: "root"
     group: "root"
