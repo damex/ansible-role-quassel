@@ -1,0 +1,10 @@
+---
+- name: ensure quassel packages
+  include_role:
+    name: "damex.package"
+  vars:
+    package_packages:
+      - name: "{{ quassel_core_package_name }}"
+        state: "{{ quassel_core_package_state }}"
+      - name: "{{ quassel_postgresql_library_package_name }}"
+        state: "{{ quassel_postgresql_library_package_state }}"

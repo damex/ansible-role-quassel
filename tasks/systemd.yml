@@ -1,0 +1,29 @@
+---
+- name: ensure systemd
+  block:
+    - name: ensure systemd custom configuration
+      template:
+        src: "quasselcore.service.j2"
+        dest: "{{ quassel_custom_systemd_file }}"
+        owner: "root"
+        group: "root"
+        mode: 0644
+      register: quassel_custom_systemd_file
+    - name: ensure systemd configuration is reloaded
+      systemd:
+        daemon_reload: yes
+      when: quassel_custom_systemd_file.changed
+    - name: ensure quassel service is enabled
+      systemd:
+        name: "{{ quassel_service_name }}"
+        enabled: true
+    - name: ensure quassel service is started
+      systemd:
+        name: "{{ quassel_service_name }}"
+        state: "started"
+    - name: ensure quassel service is restarted
+      systemd:
+        name: "{{ quassel_service_name }}"
+        state: "restarted"
+      when: quassel_custom_systemd_file.changed
+  become: true

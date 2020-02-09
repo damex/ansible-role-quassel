@@ -1,0 +1,27 @@
+---
+quassel_core_package_name: "quassel-core"
+quassel_core_package_state: "present"
+quassel_postgresql_library_package_name: "libqt5sql5-psql"
+quassel_postgresql_library_package_state: "present"
+quassel_service_name: "quasselcore"
+quassel_custom_systemd_directory: "/etc/systemd/system/quasselcore.service.d"
+quassel_custom_systemd_file: "{{ quassel_custom_systemd_directory }}/custom.conf"
+quassel_binary: "/usr/bin/quasselcore"
+quassel_configdir: "/var/lib/quassel"
+quassel_logfile: "/var/log/quassel/core.log"
+quassel_loglevel: "Info"
+quassel_port: 4242
+quassel_listen:
+  - 0.0.0.0
+# SQLite or PostgreSQL
+quassel_db_backend: "PostgreSQL"
+quassel_db_pgsql_username: "quassel"
+quassel_db_pgsql_password: "quassel"
+quassel_db_pgsql_hostname: "quassel"
+quassel_db_pgsql_port: 5432
+# Database or LDAP
+quassel_auth_authenticator: "Database"
+quassel_ident_daemon: true
+quassel_ident_port: 10113
+quassel_ident_listen:
+  - 0.0.0.0
