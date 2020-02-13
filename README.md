@@ -1,6 +1,6 @@
 # ansible quassel role
 
-[![Build Status](https://travis-ci.org/damex/ansible-role-quassel.svg?branch=master)](https://travis-ci.org/damex/ansible-role-quassel)
+[![Build Status](https://travis-ci.com/damex/ansible-role-quassel.svg?branch=master)](https://travis-ci.com/damex/ansible-role-quassel)
 
 The quassel role is designed to be used with Debian distributive.
 
