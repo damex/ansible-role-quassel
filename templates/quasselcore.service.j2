@@ -19,3 +19,6 @@ ExecStart={{ quassel_binary }} \
   --ident-listen={{ quassel_ident_listen | join(',') }} \
 {% endif %}
   --config-from-environment
+StartLimitIntervalSec=0
+Restart=always
+RestartSec=1
