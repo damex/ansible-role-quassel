@@ -1,4 +1,8 @@
 # {{ ansible_managed }}
+[Unit]
+StartLimitIntervalSec={{ quassel_systemd_startlimitintervalsec }}
+StartLimitBurst={{ quassel_systemd_startlimitburst }}
+
 [Service]
 Environment="DB_BACKEND={{ quassel_db_backend }}"
 Environment="DB_PGSQL_USERNAME={{ quassel_db_pgsql_username }}"
@@ -19,6 +23,5 @@ ExecStart={{ quassel_binary }} \
   --ident-listen={{ quassel_ident_listen | join(',') }} \
 {% endif %}
   --config-from-environment
-StartLimitIntervalSec=0
-Restart=always
-RestartSec=1
+Restart={{ quassel_systemd_restart }}
+RestartSec={{ quassel_systemd_restartsec }}

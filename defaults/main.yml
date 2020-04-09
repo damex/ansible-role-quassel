@@ -6,6 +6,10 @@ quassel_postgresql_library_package_state: "present"
 quassel_service_name: "quasselcore"
 quassel_systemd_directory: "/etc/systemd/system/quasselcore.service.d"
 quassel_systemd_file: "{{ quassel_systemd_directory }}/custom.conf"
+quassel_systemd_startlimitintervalsec: 30
+quassel_systemd_startlimitburst: 6
+quassel_systemd_restart: "on-failure"
+quassel_systemd_restartsec: 5
 quassel_binary: "/usr/bin/quasselcore"
 quassel_configdir: "/var/lib/quassel"
 quassel_logfile: "/var/log/quassel/core.log"
