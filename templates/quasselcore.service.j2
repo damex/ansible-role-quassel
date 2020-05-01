@@ -5,10 +5,12 @@ StartLimitBurst={{ quassel_systemd_startlimitburst }}
 
 [Service]
 Environment="DB_BACKEND={{ quassel_db_backend }}"
+{% if quassel_db_backend == "PostgreSQL" %}
 Environment="DB_PGSQL_USERNAME={{ quassel_db_pgsql_username }}"
 Environment="DB_PGSQL_PASSWORD={{ quassel_db_pgsql_password }}"
 Environment="DB_PGSQL_HOSTNAME={{ quassel_db_pgsql_hostname }}"
 Environment="DB_PGSQL_PORT={{ quassel_db_pgsql_port }}"
+{% endif %}
 Environment="AUTH_AUTHENTICATOR={{ quassel_auth_authenticator }}"
 ExecStart=
 ExecStart={{ quassel_binary }} \
