@@ -1,7 +1,9 @@
 ---
 quassel_core_package_name: "quassel-core"
+quassel_core_package_version: ""
 quassel_core_package_state: "present"
 quassel_postgresql_library_package_name: "libqt5sql5-psql"
+quassel_postgresql_library_package_version: ""
 quassel_postgresql_library_package_state: "present"
 quassel_service_name: "quasselcore"
 quassel_systemd_directory: "/etc/systemd/system/quasselcore.service.d"
@@ -18,7 +20,7 @@ quassel_port: 4242
 quassel_listen:
   - 0.0.0.0
 # SQLite or PostgreSQL
-quassel_db_backend: "PostgreSQL"
+quassel_db_backend: "SQLite"
 quassel_db_pgsql_username: "quassel"
 quassel_db_pgsql_password: "quassel"
 quassel_db_pgsql_hostname: "quassel"
