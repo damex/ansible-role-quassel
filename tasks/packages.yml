@@ -1,10 +1,19 @@
 ---
-- name: ensure quassel packages
+- name: ensure quassel package
   include_role:
     name: "damex.package"
   vars:
     package_packages:
       - name: "{{ quassel_core_package_name }}"
+        version: "{{ quassel_core_package_version }}"
         state: "{{ quassel_core_package_state }}"
+
+- name: ensure quassel postgresql library package
+  include_role:
+    name: "damex.package"
+  vars:
+    package_packages:
       - name: "{{ quassel_postgresql_library_package_name }}"
+        version: "{{ quassel_postgresql_library_package_version }}"
         state: "{{ quassel_postgresql_library_package_state }}"
+  when: quassel_db_backend == "PostgreSQL"
