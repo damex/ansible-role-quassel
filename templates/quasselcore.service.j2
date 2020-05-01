@@ -12,6 +12,14 @@ Environment="DB_PGSQL_HOSTNAME={{ quassel_db_pgsql_hostname }}"
 Environment="DB_PGSQL_PORT={{ quassel_db_pgsql_port }}"
 {% endif %}
 Environment="AUTH_AUTHENTICATOR={{ quassel_auth_authenticator }}"
+{% if quassel_auth_authenticator == "LDAP" %}
+Environment="AUTH_LDAP_HOSTNAME={{ quassel_auth_ldap_hostname }}"
+Environment="AUTH_LDAP_PORT={{ quassel_auth_ldap_port }}"
+Environment="AUTH_LDAP_BIND_DN={{ quassel_auth_ldap_bind_dn }}"
+Environment="AUTH_LDAP_BIND_PASSWORD={{ quassel_auth_ldap_bind_password }}"
+Environment="AUTH_LDAP_FILTER={{ quassel_auth_ldap_filter }}"
+Environment="AUTH_LDAP_UID_ATTRIBUTE={{ quassel_auth_ldap_uid_attribute }}"
+{% endif %}
 ExecStart=
 ExecStart={{ quassel_binary }} \
   --configdir={{ quassel_configdir }} \
