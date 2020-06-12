@@ -1,0 +1,11 @@
+---
+- name: ensure systemd configuration
+  template:
+    src: "quasselcore.service.j2"
+    dest: "{{ quassel_systemd_file }}"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: ensure systemd configuration is reloaded
+  register: quassel_systemd_configuration
+  become: true
