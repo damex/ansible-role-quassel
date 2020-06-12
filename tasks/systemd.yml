@@ -4,8 +4,7 @@
 
 - name: ensure systemd service
   include_role:
-    name: "damex.systemd"
+    name: "damex.systemd_service"
   vars:
-    systemd_services:
-      - name: "{{ quassel_service_name }}"
-        restart_on: "quassel_systemd_configuration.changed"
+    systemd_service_name: "{{ quassel_service_name }}"
+    systemd_service_restart_on: "quassel_systemd_configuration.changed"
