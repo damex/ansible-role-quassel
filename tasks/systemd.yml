@@ -7,4 +7,4 @@
     name: "damex.systemd_service"
   vars:
     systemd_service_name: "{{ quassel_service_name }}"
-    systemd_service_restart_on: "quassel_systemd_configuration.changed"
+    systemd_service_restart_on: "{{ quassel_systemd_configuration.changed }}"
