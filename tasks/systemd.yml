@@ -4,7 +4,7 @@
 
 - name: ensure systemd service
   include_role:
-    name: "ansible-role-systemd"
+    name: "damex.systemd"
   vars:
     systemd_services:
       - name: "{{ quassel_service_name }}"
